@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model</title>
+  </head>
+
+  <body>
+    <button>hello</button>
+    <button class="js-button">second button</button>
+    <input class="js-input-number">
+    <script>
+      //DOM is a built-in object
+      //Document Object represents/models the web page
+      //DOM combines HTML and Javascript together and gives js control of the webpage.
+      /*
+      document.body.innerHTML = 'hello';
+      document.title = 'DOM';
+
+      console.log(document.title);
+
+      console.log(document.body);  // with this we have the body element inside js.
+      console.log(typeof document.body);
+
+      console.log(document.body.innerHTML);
+      document.body.innerHTML = '<button>Javascript</button>';   //we can change the body of the web page
+      */
+
+      console.log(document.querySelector('button'));
+
+      console.log(document.querySelector('button').innerHTML);
+
+      document.querySelector('button')
+        .innerHTML = 'changed';
+
+      const buttonElement = document.querySelector('.js-button');
+      console.log(buttonElement);
+
+      /*
+     whenever we get a value from DOM, the value will be a string (this is called type coersion or type conversion).
+     So we have to manually change it into a number.
+      */
+
+      let price = Number(document.querySelector('.js-input-number').value);
+      console.log(typeof price);                 // it will show number as we changed it
+      
+      // We can also change number to a string.
+
+      String(25);
+      console.log('25' - 5);     //when we - * / from a string that has only number it will treat it as a number (type coersion)
+      console.log('25' + 5);     // with + this will not work, it will give 255
+
+      /* window object (built-in object) contains the whole browser (the document,console,alert etc are all part of it).
+      but we don't have to write window, js will automatically adds it.
+      */
+
+      window.document                          // it means same as document
+      window.console.log('window');           //it means same as console
+      window.alert                            // it means same as alert
+    </script>
+    
+  </body>
+</html>

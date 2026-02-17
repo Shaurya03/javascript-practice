@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Functions</title>
+  </head>
+  
+  <body>
+    <button class="js-button">Click</button>
+    <script>
+
+      /*
+      addEventListener is used to add events when we interact with html.
+      we can add multiple event listeners and also can remove an event listener.
+      it is better than using an onclick attribute.
+      */
+
+      const buttonElement = document.querySelector('.js-button');
+
+      buttonElement.addEventListener('click', () => {    // it takes two parameters(the event and the function) 
+        console.log('Click')
+      });
+
+      const eventListener = () => console.log('Click2');
+
+      buttonElement.addEventListener('click', eventListener);  // adding another event listener
+
+      buttonElement.removeEventListener('click', eventListener);  // removing an event listener
+
+
+
+      const function1 = function() {        // function is a type of value so we can store it in a variable
+        console.log('hello');               // since we are using a variable we don't need to name the fuction
+      };                                    // function without a name is called anonymous function 
+
+      console.log(function1);
+      console.log(typeof function1);
+      function1();                          // calling the function using its variable name
+
+      /*
+      calling a function before it is created is called hoisting
+      we can't call this function before the variable is initialized 
+      */
+
+      greetings();                  // we can call this function before because it is not initialized by a variable
+      function greetings() {
+        console.log('Good Morning');
+      }
+
+      const object1 = {
+        num: 2,
+        fun: function() {                  // function inside an object (it is called method)
+          console.log('Good Afternoon');
+        }
+      };
+      object1.fun();                   // calling the function
+
+
+      function display (para) {
+        console.log(para);
+      }
+      display(2);                 // passing a value into a function
+
+
+      function run (para) {
+        para();
+      }                                // passing a function into another function
+      run(function() {                 // the function we are passing is called callback 
+        console.log('Good Evening');
+      } );
+
+
+      // Synchronus code wait for one line to finish before going to the next line
+      // Asynchronus code won't wait for a line to finish before going to the next line
+
+      setTimeout(function() {    // setTimeout is a built-in function which is used to call a function after a certain 
+        console.log('timeout');  // amount of time (it is a asynchronus code)
+      } , 5000);                 // this value is in milliseconds
+
+      console.log('next line');  // setTimeout will not wait for it to finish it will pop up after the set time
+
+
+      setInterval(function() {   // setInterval is also a asynchronus code which will keep on running in a set time
+        console.log('interval');
+      } , 3000);
+
+      /*
+      forEach is the preferred way to loop through an array.
+      for each value function will store it in the parameter and run it.
+      it takes two parameters ( the value and index).
+      */
+      [
+        'make dinner',
+        'study',
+        'sleep'
+      ].forEach((value, index) => {   // when passing a function into another function use arrow function
+        if (value === 'study') {
+          return;                  // works same as continue ( if want to use break then the for loop is better)
+        }
+        console.log(index);                  
+        console.log(value);
+      });
+
+
+      // arrow functions are a shorter way of creating functions and it has a few shotrcuts.
+
+      const arrowFunction = (param, param2) => {           // instead of function we can make an arrow
+        console.log(param + param2);
+      }
+      arrowFunction(2, 3);
+
+      const oneParam = param => {      // if the function has only one parameter we don't need round brackets
+        console.log(param + 1);
+      }
+      oneParam(3);
+
+      const oneLine = () => 1 + 3;     // if the function has only one line we don't need curly brackets and return 
+      console.log(oneLine());
+
+
+      /*
+      filter() function takes two parameters(the value and index). 
+      it creates a new array and also takes a return value.
+      if return true => put value in array
+      if return false => not put value in array
+      */
+
+      console.log([1,-3,5].filter((value, index) => {
+        /*
+        if (value >= 0) {
+        return true;
+        } else {
+          return false;
+        }
+        */
+        return value >= 0;
+      }));
+
+
+      /*
+      map() function works same as foreach and filter function.
+      it creates a new array and add whatever we return.
+      so map() transforms an array into another array.
+      */
+
+      console.log([1,1,3].map((value,index) => {
+        return value * 2;
+      }));
+
+      console.log([1,1,3].map(value => value * 2));   // shortcut of arrow function
+
+
+      /*
+      Closure => if a function has access to a value, it will always have access to that value.
+      Value gets packaged together (enclosed) with the function.
+      */
+
+     
+      
+    </script>
+  </body>
+</html>

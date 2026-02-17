@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+
+  <body>
+
+    <script type="module">
+
+      import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+      import isSatSun from './practice-scripts/15f.js';
+
+      const today = dayjs();
+      let date = today.add(5, 'days');
+      console.log(date.format('MMMM D'));
+
+      date = today.add(1, 'month');
+      console.log(date.format('MMMM D'));
+
+      date = today.subtract(1, 'month');
+      console.log(date.format('MMMM D'));
+      console.log(date.format('dddd'));
+
+
+
+      date = dayjs();
+      console.log(date.format('dddd, MMMM D'));
+      console.log(isSatSun(date));
+
+      date = dayjs().add(2, 'days');
+      console.log(date.format('dddd, MMMM D'));
+      console.log(isSatSun(date));
+
+      date = dayjs().add(5,'days');
+      console.log(date.format('dddd, MMMM D'));
+      console.log(isSatSun(date));
+
+    </script>
+  </body>
+
+</html>

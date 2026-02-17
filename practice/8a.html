@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+
+  <body>
+    <script>
+
+      const product = {
+        name: 'basketball',
+        price: 20.95
+      };
+      console.log(product);
+      product.price += 5.00;
+      console.log(product);
+      product['delivery-time'] = '3 days';
+      console.log(product);
+
+      function compareProduct(product1,product2) {
+        
+        if(product1.price > product2.price) {
+          return product2;
+        } else {
+          return product1;
+        }
+      }
+
+       const product1 = {
+          name: 'nike-shoes',
+          price: 50.00
+        };
+
+         const product2 = {
+          name: 'adidas-shoes',
+          price: 60.00
+        };
+
+      console.log(compareProduct(product1,product2));
+
+      function isSameProduct(product1,product2) {
+
+        if (product1.name === product2.name && product1.price === product2.price) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(isSameProduct(product1,product2));
+
+      console.log('Good Morning'.toLowerCase());
+
+      console.log('Good Morning '.repeat(2));
+ 
+      </script>
+  </body>
+</html>

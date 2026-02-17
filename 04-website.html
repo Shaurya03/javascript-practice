@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>html-css-review</title>
+
+    <style>  
+    /*this is how we style html*/
+    
+      .red-button{
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button title="hello" class="red-button" 
+    onclick="alert('good job!')"                  
+    >                                             <!--on click uses js when we click on the element-->
+      Hello
+    </button>
+
+    <button class="buy-now" 
+    onclick="console.log('Loading...');
+             alert('Purchased');"
+    >
+      Buy Now
+    </button>
+
+    <script>            /*we write js in the end of our body using
+                        script tag*/
+
+      alert('hello');  //this will pop up when we open the web page
+
+
+      console.log(2+2);
+
+      console.log('some'+'text');  //this will show up in the console
+    </script>          
+  </body>
+</html>

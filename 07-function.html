@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions</title>
+  </head>
+
+  <body>
+    <script>
+      
+     function function1() {     // helps in reusing the code
+      console.log('hello');     // doesn't run the code inside, only creates it
+      console.log(2+3);
+     }
+
+     function1();               // calling a function
+
+     function calculateTax (cost, taxPercent = 0.1) {     //  parameter lets us put values into the function 
+      console.log(cost * taxPercent);                     // we can also set a default value for a parameter
+     }
+     calculateTax(2000, 0.2);             // passing value into a function, also called arguement
+     calculateTax(4000);
+
+    </script>
+    
+  </body>
+</html>

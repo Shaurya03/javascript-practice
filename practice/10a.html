@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+
+      .amazon{
+        background-color: rgb(255,216,20);
+        color: black;
+        padding: 8px 50px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        display: block;
+        margin-bottom: 30px;
+      }
+
+      .request{
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+        margin-right: 20px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .schedule{
+        background-color: rgb(230,230,230);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+      .test-button{
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      .toggle{
+        background-color: rgb(230,230,230);
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .is-toggled{
+        background-color: black;
+        color: white;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <button class="amazon">Add to Cart</button>
+    <button class="request">Request now</button>
+    <button class="schedule">Schedule for later</button>
+    <button class="js-button test-button">Test</button>
+    <button class="js-toggle toggle" onclick="
+      toggled(this);
+    ">Gaming</button>
+    <button class="js-toggle toggle" onclick="
+      toggled(this);
+    ">Music</button>
+    <button class="js-toggle toggle" onclick="
+      toggled(this);
+    ">Tech</button>
+
+    <script>
+
+      function toggled (toggleElement) {
+        
+       const allButtons = document.querySelectorAll('.js-toggle');
+      // allButtons.forEach(btn => btn.classList.remove('is-toggled'));
+
+      allButtons.forEach(function (btn){
+        btn.classList.remove('is-toggled');
+      });
+
+
+       toggleElement.classList.add('is-toggled');
+      }
+
+      
+
+      console.log(document.querySelector('.js-button')
+        .classList.contains('js-button'));
+    </script>
+  </body>
+</html>

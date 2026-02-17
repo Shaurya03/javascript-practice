@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+  </head>
+  <body>
+
+    <button class="js-button">
+      Start
+    </button>
+
+    <button class="js-add-cart-button">
+      Add to Cart
+    </button>
+
+    <p class="js-added-output"></p>
+
+    <button class="js-add-message-button">
+      Add
+    </button>
+
+    <button class="js-remove-message-button">
+      Remove
+    </button>
+    
+    <script>
+
+      document.querySelector('.js-add-message-button')
+        .addEventListener('click', () => {
+          messages++;
+          displayNotification();
+        });
+
+      document.querySelector('.js-remove-message-button')
+        .addEventListener('click', () => {
+           if (messages > 0) {
+             messages--;
+           } 
+           if (messages === 0) {
+             stopNotification();
+           }
+        });
+
+      let messages = 2;
+      let isdisplayingNotification;
+      let intervalId;
+
+      displayNotification();
+
+      function displayNotification () {
+
+        if (isdisplayingNotification) {
+          return;
+        }
+        isdisplayingNotification = true;
+
+        intervalId = setInterval(() => {
+          if (document.title === 'App') {
+            document.title = `(${messages}) New Messages`;
+          } else {
+            document.title = 'App';
+          }
+        }, 1000);
+      }
+
+      function stopNotification () {
+        isdisplayingNotification = false;
+
+        clearInterval(intervalId);
+        document.title = 'App';
+      }
+      
+
+      const add = () => console.log(2+3);
+      add();
+      add();
+
+
+      function runTwice (fun) {
+        fun();
+        fun();
+      }
+
+      runTwice(() => console.log('12b'));
+
+      runTwice(add);
+
+      document.querySelector('.js-button')
+        .addEventListener('click', startButton);
+
+      function startButton () {
+        const buttonElement = document.querySelector('.js-button');
+
+        if (buttonElement.innerText === 'Start') {
+          buttonElement.innerText = 'Loading...';
+
+          setTimeout (() => {
+          buttonElement.innerText = 'Finished!';
+          }, 1000);
+        } else if (buttonElement.innerText === 'Finished!') {
+          setTimeout (() => {
+          buttonElement.innerText = 'Start';
+          }, 1000);
+        }
+      }
+
+      document.querySelector('.js-add-cart-button')
+        .addEventListener('click', addToCart);
+
+      let addedTimeout;
+
+      function addToCart () {
+        const addElement = document.querySelector('.js-added-output');
+
+        addElement.innerText = 'Added';
+
+        clearTimeout(addedTimeout);
+        addedTimeout = setTimeout(function() {
+          addElement.innerText = '';
+        }, 2000);
+      }
+
+    </script>
+  </body>
+</html>

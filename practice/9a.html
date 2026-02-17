@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .js-second-button{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <button class="js-button">9a</button>
+    <button class="js-second-button">9b</button>
+
+    <button onclick="
+      document.querySelector('.js-choice')
+        .innerHTML = 'You chose: heads';
+    ">heads</button>
+
+    <button onclick="
+      document.querySelector('.js-choice')
+        .innerHTML = 'You chose: tails';
+    ">tails</button>
+
+    <p class="js-choice"></p>
+
+    <input class="js-name-input" onkeydown="
+      if (event.key === 'Enter') {
+        submitName();
+      }
+    ">
+
+    <button onclick="
+        submitName();
+    " class="js-submit">Submit</button>
+
+    <p class="js-name"></p>
+
+    <input class="js-input" onkeyup="
+       let inputElement = document.querySelector('.js-input');
+
+        document.querySelector('.js-message')
+          .innerHTML = inputElement.value;
+    ">
+
+    <p class="js-message"></p>
+
+    <script>
+
+      function submitName () {
+        let inputName = document.querySelector('.js-name-input');
+
+        document.querySelector('.js-name')
+          .innerHTML = `Your name is ${inputName.value}`;
+      }
+
+      console.log(document.querySelector('.js-button'));
+
+      document.querySelector('.js-second-button')
+        .innerHTML = '9b done!';
+
+     
+    </script>
+  </body>
+</html>

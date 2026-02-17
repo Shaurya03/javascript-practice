@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+
+      //Some details about classes and this
+
+      const date = new Date();        //built-in class
+      console.log(date);
+      console.log(date.toLocaleTimeString());
+
+
+      // this lets an object access its own properties
+
+      console.log(this);    // in js modules if there is no object to point to, this = undefined, otherwise this = window   
+
+      const object2 = {
+        a: 2,
+        b: this.a           // since object2 has not been created yet so this has nothing to point to so it will give a error
+      };
+
+
+      function logThis() {
+        console.log(this);       // inside a function this = undefined 
+      }
+      logThis();
+      logThis.call('hello');    // but we can change it
+
+
+      const object3 = {
+        method: () => {         // arrow functions do not change the value of this
+          console.log(this);    // inside a method this points to the outer object
+        }
+      };
+      object3.method(); 
+    </script>
+  </body>
+</html>
+
